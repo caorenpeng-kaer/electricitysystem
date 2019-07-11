@@ -1,5 +1,6 @@
 package cn.com.kaer.electricisystem.goodsserver.dao;
 
+import cn.com.kaer.electricisystem.goodsserver.entity.GoodsEntity;
 import cn.com.kaer.electricisystem.goodsserver.vo.GoodsVO;
 import org.springframework.stereotype.Repository;
 
@@ -12,4 +13,6 @@ import java.util.List;
 @Repository
 public interface GoodsMapper {
     List<GoodsVO> getGoodsByCategoryId(Integer categoryId);
+
+    GoodsEntity getGoodsById(String goodsId);
 }

@@ -5,4 +5,9 @@
         SELECT * FROM tb_goods_info
 WHERE category_id=#{categoryId} AND status=1
     </select>
+
+    <select id="getGoodsById" parameterType="java.lang.String" resultType="cn.com.kaer.electricisystem.goodsserver.entity.GoodsEntity">
+        SELECT * FROM tb_goods_info
+WHERE goods_id=#{goodsId}
+    </select>
 </mapper>

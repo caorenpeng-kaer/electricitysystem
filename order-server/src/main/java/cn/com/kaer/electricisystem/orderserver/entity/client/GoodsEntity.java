@@ -1,4 +1,4 @@
-package cn.com.kaer.electricisystem.goodsserver.entity;
+package cn.com.kaer.electricisystem.orderserver.entity.client;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
