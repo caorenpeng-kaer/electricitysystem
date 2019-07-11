@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.com.kaer.electricisystem.orderserver.dao.ShoppingCartMapper">
+    <insert id="addShoppingCartInfo" parameterType="cn.com.kaer.electricisystem.orderserver.entity.ShoppingCartDTO">
+        INSERT INTO tb_shopping_cart_info(user_id,goods_id,quantity,create_time,update_time)
+        VALUES
+        (#{userId},#{goodsId},#{quantity},NOW(),NOW())
+    </insert>
+    <select id="getGoodsFromCartByIdAndGoodsId" parameterType="cn.com.kaer.electricisystem.orderserver.entity.ShoppingCartDTO" resultType="cn.com.kaer.electricisystem.orderserver.entity.ShoppingCartDTO">
+        SELECT * FROM tb_shopping_cart_info
+WHERE user_id=#{userId} AND goods_id=#{goodsId}
+    </select>
+    <update id="addQuantity" parameterType="cn.com.kaer.electricisystem.orderserver.entity.ShoppingCartDTO">
+        UPDATE tb_shopping_cart_info SET quantity=quantity+#{quantity}
+WHERE user_id=#{userId} AND goods_id=#{goodsId}
+    </update>
+</mapper>
