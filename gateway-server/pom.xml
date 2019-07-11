@@ -2,37 +2,27 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<packaging>pom</packaging>
-	<modules>
-		<module>goods-server</module>
-		<module>integral-server</module>
-		<module>logistics-server</module>
-		<module>order-server</module>
-		<module>paying-server</module>
-		<module>user-server</module>
-	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.0.5.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>cn.com.kaer</groupId>
-	<artifactId>electricitysystem</artifactId>
+	<groupId>cn.com.kaer.electricitysystem</groupId>
+	<artifactId>gateway-server</artifactId>
 	<version>1.0.1</version>
-	<name>electricitysystem</name>
-	<description>电商系统分布式架构</description>
+	<name>gateway-server</name>
+	<description>路由网关</description>
 
 	<properties>
 		<java.version>1.8</java.version>
 		<spring-cloud.version>Finchley.RELEASE</spring-cloud.version>
-		<cloud-alibaba>0.2.2.RELEASE</cloud-alibaba>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<artifactId>spring-boot-starter</artifactId>
 		</dependency>
 
 		<dependency>
@@ -40,6 +30,24 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		<!--eureka客户端-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-gateway</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<dependencyManagement>
@@ -51,13 +59,16 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-alibaba-dependencies</artifactId>
-			<version>${cloud-alibaba}</version>
-			<type>pom</type>
-			<scope>import</scope>
-			</dependency>
 		</dependencies>
 	</dependencyManagement>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
