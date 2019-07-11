@@ -1,0 +1,51 @@
+##############################################ª˘¥°≈‰÷√##############################################
+server:
+  port: 9002
+spring:
+  application:
+    name: gateway-server
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: goods
+          uri: lb://goods
+          predicates:
+            - Method=GET,POST
+        - id: user
+          uri: lb://user
+          predicates:
+            - Method=GET,POST
+        - id: order
+          uri: lb://order
+          predicates:
+            - Method=GET,POST
+        - id: paying
+          uri: lb://paying
+          predicates:
+            - Method=GET,POST
+        - id: logistics
+          uri: lb://logistics
+          predicates:
+            - Method=GET,POST
+        - id: integral
+          uri: lb://integral
+          predicates:
+            - Method=GET,POST
+#logging:
+#  config: classpath:logback-local.xml
+##############################################eureka≈‰÷√##############################################
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:9001/eureka/
+    healthcheck:
+      enable: true
+  instance:
+    instance-id: ${spring.cloud.client.ip-address}:${server.port}:@project.version@
+    prefer-ip-address: true
+    lease-expiration-duration-in-seconds: 30
+    lease-renewal-interval-in-seconds: 10
