@@ -18,6 +18,11 @@ public class GoodsClient {
     @Autowired
     private IGoodsService goodsService;
 
+    /**
+     * <h2>对外提供查询某商品详情的功能</h2>
+     * @param goodsId
+     * @return
+     */
     @GetMapping(value = "/getGoods")
     public GoodsEntity getGoods(@RequestParam("goodsId") String goodsId) {
         return goodsService.getGoodsById(goodsId);

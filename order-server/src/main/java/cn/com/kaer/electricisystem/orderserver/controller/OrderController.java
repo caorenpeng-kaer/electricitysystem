@@ -25,6 +25,12 @@ public class OrderController {
     @PostMapping(value = "/placeOrder")
     @ApiOperation("下单操作")
     public SysResult placeOrder() {
+        //参数接收List<Object>  Object:商品ID、数量
+        //1.查询商品
+        //2.校验库存
+        //3.减库存操作
+        //4.创建订单
+        //5.下单成功
         return SysResult.ok();
     }
 
