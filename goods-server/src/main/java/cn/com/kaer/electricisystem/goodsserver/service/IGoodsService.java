@@ -11,4 +11,6 @@ public interface IGoodsService {
     SysResult getGoodsByCategory(Integer categoryId);
 
     GoodsEntity getGoodsById(String goodsId);
+
+
 }
