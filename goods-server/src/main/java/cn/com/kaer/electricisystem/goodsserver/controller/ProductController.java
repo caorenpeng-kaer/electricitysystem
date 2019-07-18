@@ -16,8 +16,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.CopyOnWriteArraySet;
 
 /**
  * Created by Caorenpeng
@@ -49,6 +52,9 @@ public class ProductController {
     public static void main(String[] args) {
         List<String> lists = Lists.newArrayList();
         Map<String, Object> maps = Maps.newHashMap();
+        Lists.newLinkedList();
+        CopyOnWriteArrayList copyOnWriteArraySet = Lists.newCopyOnWriteArrayList();
+        copyOnWriteArraySet.add("asddasdsa");
         boolean result = Strings.isNullOrEmpty(null);
         System.out.println(result);
     }

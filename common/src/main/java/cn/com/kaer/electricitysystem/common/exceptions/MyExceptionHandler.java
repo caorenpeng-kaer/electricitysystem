@@ -17,6 +17,7 @@ public class MyExceptionHandler {
         if (e instanceof CommonException) {
             return SysResult.fail(((CommonException) e).getCode(), ((CommonException) e).getErrorMsg());
         } else {
+            e.printStackTrace();
             return SysResult.fail(ReturnMessage.SERVER_IS_ERROR.getCode(), ReturnMessage.SERVER_IS_ERROR.getErrorMsg());
         }
     }
