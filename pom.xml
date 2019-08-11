@@ -10,6 +10,9 @@
         <module>order-server</module>
         <module>paying-server</module>
         <module>user-server</module>
+        <module>eureka-server</module>
+        <module>gateway-server</module>
+        <module>common</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
